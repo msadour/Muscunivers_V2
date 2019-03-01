@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icon.png' %}" />
+
+        {% include 'common/load_staticfiles/load_jquery.html' %}
+        {% include 'common/load_staticfiles/load_css.html' %}
+
+
+        <title>Muscunivers</title>
+    </head>
+    <body>
+
+    {% if not in_maintenance %}
+
+        {% if user.is_authenticated %}
+            {% include 'menu/menu.html' %}
+        {% else %}
+            {% include 'menu/menu_connection.html' %}
+        {% endif %}
+            <div>
+                <div id="body" class="container col-sm-12">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+
+
+    {% else %}
+        {% include 'common/maintenance.html' %}
+
+    {% endif %}
+
+    {% include 'common/load_staticfiles/load_js.html' %}
+
+    </body>
+</html>

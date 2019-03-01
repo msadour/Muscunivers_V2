@@ -1,0 +1,106 @@
+/* --------------------- Main menu ---------------------  */
+
+.menu {
+    background-color: #00586e;
+}
+
+.form_menu {
+    display: inline-block;
+}
+
+.img_menu{
+    float:left;
+    margin-left: 10%;
+    margin-top: 8%
+}
+
+.img_main_menu {
+    margin-top: 0.5%;
+}
+
+.input_form_search {
+    margin-top: 8%
+}
+
+/* --------------------- Profil menu ---------------------  */
+
+.menu_profil {
+    background-color: white;
+    width: 100%;
+    border: 0px solid #b3ffda;
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 0px
+}
+
+.item_menu {
+    /*border-left: 1px solid #b3ffda;*/
+    width: 15%;
+}
+
+.item_menu_border_right {
+    /*border-right: 1px solid #b3ffda;*/
+}
+
+.text_item_menu {
+    text-align: center;
+    margin-top: 16.5%;
+    margin-bottom: 10%;
+    font-weight: bold;
+}
+
+.profil_picture_menu {
+    width: 50%;
+    border-radius: 40%
+}
+
+/* ---- submenu */
+.hr_submenu {
+    width : 250%;
+    margin-left: -80%;
+}
+
+#submenu_scrolldown {
+    display: None;
+    position: absolute;
+    z-index:10;
+    margin-left: 74%;
+    background-color: white;
+    width: 7.5%;
+    margin-top: -1.2%;
+}
+
+.item_submenumenu {
+    width: 50%;
+    height: 20%;
+}
+
+nav li{
+    list-style-type: None
+}
+
+
+/*#submenu_scrolldown:hover{
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+}*/
+
+/*  --------------------- Search menu ---------------------  */
+
+.menu_search {
+    background-color: white;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+.item_menu_search {
+    /*border-left: 1px solid #e9eaed;*/
+    width: 15%;
+    background-color: white;
+}
+
+

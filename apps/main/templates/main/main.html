@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+{% include 'common/contacts.html' %}
+
+<table class="main_content all_features">
+    <tr>
+
+        <th>
+            {% include 'common/publication/status.html' %}
+        </th>
+
+    </tr>
+
+</table>
+
+{% if mode == 'one_publication' %}
+    <script>
+        $('.publications_main').css('width':'230%');
+    </script>
+
+{% endif %}
+
+
+{% endblock %}

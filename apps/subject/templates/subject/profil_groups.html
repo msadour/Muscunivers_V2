@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+
+<div class="table_main_element">
+    {% if mode == 'my_profil' %}
+        <form method="post" id="publish_form">
+            {% csrf_token %}
+                <table >
+                    {% for field in group_form %}
+                        <tbody>
+                            <tr>
+                              <td>
+                                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                              </td>
+                              <td>
+                                {{ field }}
+                              </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
+            <br>
+            <hr style="width:95%; margin-bottom:1%">
+            <input type="submit" value="Creer" class="button_share all_button"/>
+        </form>
+    {% endif %}
+
+    <br />
+
+    <!--<div id="all_publications">-->
+    {% for group in groups_profil %}
+        <table border="0" class="one_publication">
+            <tr>
+                <!--<th>-->
+                    <!--<img src="{{ status.0.profil_picture.url }}" class="profil_picture_in_publication" />-->
+                <!--</th>-->
+                <th >
+                    <div class="content_publication">
+
+                        group
+                    </div>
+
+                </th>
+            </tr>
+
+        </table>
+        <br>
+
+        {% empty %}
+            <p id="not_group">Aucun groupe ..</p>
+    {% endfor %}
+
+</div>

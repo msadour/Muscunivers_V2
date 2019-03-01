@@ -1,0 +1,43 @@
+{% for publication in publications %}
+    <table border="0.5" class="one_publication">
+        <tr>
+            <th>
+                <p id="username_publication">{{publication.author.username}}</p>
+                <p id="date_publication">{{publication.date}}</p>
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <p id="message_publication">{{publication.message}}</p>
+                <hr style="width:95%; ">
+                {% csrf_token %}
+                <table id="comment_form">
+                    {% for field in comment_form %}
+                    <tbody>
+                    <tr>
+                      <td>
+
+                        <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle;">{{ field.label_tag }}</label>
+                      </td>
+                      <td>
+                        {{ field }}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </th>
+
+        </tr>
+
+    </table>
+<br>
+
+    {% empty %}
+        <p id="not_publication">{{ user.username }} don't have publications ..</p>
+
+{% endfor %}
+
+

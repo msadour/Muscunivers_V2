@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="row menu_profil navbar">
+
+    <div class="col-md-1 item_menu"></div>
+
+    <a href="{% url 'my_wall' %}">
+        <div class="col-md-1 item_menu">
+            <p class="text_item_menu">Wall</p>
+        </div>
+    </a>
+
+    <a href="{% url 'my_informations' %}">
+        <div class="col-md-1 item_menu">
+            <p class="text_item_menu">Informations</p>
+        </div>
+    </a>
+
+    <a href="{% url 'my_events' %}">
+        <div class="col-md-1 item_menu">
+            <p class="text_item_menu">Events</p>
+        </div>
+    </a>
+
+    <a href="{% url 'my_contacts' %}">
+        <div class="col-md-1 item_menu">
+            <p class="text_item_menu">Contacts</p>
+        </div>
+    </a>
+
+
+    <a href="{% url 'my_coachings' %}">
+        <div class="col-md-1 item_menu">
+            <p class="text_item_menu">Coachings</p>
+
+        </div>
+    </a>
+    <div class="col-md-1 item_menu"></div>
+
+</nav >

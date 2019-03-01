@@ -1,0 +1,12 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'js/users.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/request_connect.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/color.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/publications.js' %}"></script>
+
+{% if user.is_authenticated %}
+    <script type="text/javascript" src="{% static 'js/load_notification.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'js/load_publication_profil.js' %}"></script>-->
+    <!--<script type="text/javascript" src="{% static 'js/load_publication_main.js' %}"></script>-->
+{% endif %}

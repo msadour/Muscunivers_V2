@@ -1,0 +1,88 @@
+/* --------------------- Common ---------------------  */
+
+h2 {
+    color: #00586e;
+    text-align: center;
+    margin-top: 2%;
+}
+
+h4 {
+    color: #00586e;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    color: #00586e;
+}
+
+a {
+    color: #00586e;
+}
+
+.black_color {
+    color: black;
+}
+
+/* --------------------- Profil ---------------------  */
+
+title_information {
+    margin-left: 15%;
+}
+
+.text_information {
+    margin-bottom: 5%;
+    margin-top: -2%;
+    margin-left: 10%;
+}
+
+#username_profil {
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+
+/* --------------------- Main ---------------------  */
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------- Contact ---------------------  */
+
+
+
+
+
+
+
+
+
+/* --------------------- Notification ---------------------  */
+
+
+/* --------------------- Service ---------------------  */
+
+
+
+
+
+/* --------------------- Publication ---------------------  */
+
+
+
+
+
+/* --------------------- Comment ---------------------  */

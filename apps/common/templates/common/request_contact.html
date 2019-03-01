@@ -1,0 +1,40 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="requests_friend" class="all_features frame">
+        <table border="0" id="table_requests_friend">
+            <tr>
+                <th>
+                    <h4> <img src="{% static 'img/icon_title/contacts.png' %}" class="icon_title" /> Demandes d'ajout</h4>
+                    <hr width="100%">
+                </th>
+            </tr>
+            {% for user_request in requests_contact %}
+                <tr>
+                    <th id="{{user_request.user.id}}">
+                        <img src="{{ user_request.profil_picture.url }}" class="profil_picture_contact" />
+                        <a href="{% url 'get_profil_user' user_request.user.id %}"> {{ user_request.user }} </a>
+
+                        <button value="accept" type="submit" class="accept_button" name="{{user_request.user.id}}">
+                            <img src="{% static 'img/add.png' %}"> Accepter </button>
+
+                        <button value="decline" type="submit" class="decline_button" name="{{user_request.user.id}}">
+                            <img src="{% static 'img/cancel.png' %}"> Décliner </button>
+
+                        <hr width="100%">
+
+                    </th>
+                    {% empty %}
+                        <th>
+                            <p id="not_invitation">Aucune invitation ..</p>
+                        </th>
+
+                </tr>
+
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+{% endblock %}

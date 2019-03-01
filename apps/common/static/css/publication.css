@@ -1,0 +1,123 @@
+/* -------------------- Global publication -------------------- */
+
+.one_publication {
+    background-color: white;
+    width: 100%;
+    /*border-radius: 10px;*/
+    border: 1px solid #b3ffda;
+    height: 50%;
+}
+
+.one_comment {
+    background-color: #D8FEEC;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+#publications_profil {
+    width: 72%;
+    height: 30%;
+    margin-left: 15%;
+    /*margin-left : 50%;*/
+}
+
+.publications_main {
+    width: 100%;
+    /*margin-left : 50%;*/
+}
+
+.table_main_element {
+    width: 100%;
+}
+
+.class_single_publication {
+    width: 135%;
+}
+
+#content_publication {
+    margin-top: -2%;
+    margin-left: -50%;
+}
+
+/* -------------------- Form -------------------- */
+
+#message_publication_form {
+    border: 0px;
+    width: 95%;
+}
+
+#publish_form{
+    border: 1px solid #b3ffda;
+    background-color: white;
+}
+
+
+/* -------------------- Button -------------------- */
+
+.button_share {
+    width: 50%;
+    margin-left : 25%;
+    margin-bottom: 1%
+}
+
+.icon_delete {
+    margin-left : 2800%;
+    margin-top : 15%;
+}
+
+.icon_delete_comment {
+    margin-left: 2500%;
+    margin-top : 2%;
+}
+
+.button_comment {
+    margin-left: 130%;
+    margin-bottom : 13%
+}
+
+
+/* -------------------- content -------------------- */
+
+.profil_picture_in_publication {
+    width: 10%;
+}
+
+.username_publication {
+    font-weight: bold;
+    margin-top: 0%;
+    display:inline-block;
+}
+
+.message_publication {
+    font-weight: normal;
+    margin-top: -1%;
+    color: black;
+}
+
+.date_publication {
+    font-weight: normal;
+    font-size: 12px;
+    color: #7a7a52;
+    margin-top: -4%
+}
+
+/* -------------------- Form -------------------- */
+
+#form_comment {
+    display: inline-block;
+}
+
+#comment_form {
+    margin-top: 0%;
+}
+
+.comment_input {
+    width: 125%;
+    margin-left: 7%;
+    border-radius: 10px;
+    border: 1px solid #b3ffda;
+    background-color: #D8FEEC;
+    margin-bottom: 1%
+}

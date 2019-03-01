@@ -1,0 +1,95 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<br/>
+{% if errors %}
+    <div id="errors">
+        <ul>
+        {% for error in errors %}
+            <li class="error_inscription">{{error}}</li>
+
+        {% empty %}
+            <br />
+        {% endfor %}
+    </ul>
+
+    </div>
+{% endif %}
+
+
+<table id="all_forms_authentication">
+    <tr>
+        <th>
+
+            <div class="common_content form_authentication" id="signup_person_form">
+                <h4 class="title_form_signup">Vous êtes un athlete ou un coach?</h4>
+                <hr class="hr_form"><br/>
+                <form action="inscription" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="table_signup_form">
+                        {% for field in signup_person_form %}
+                        <tbody>
+                        <tr>
+                          <!--<td>-->
+                            <!--<label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>-->
+                          <!--</td>-->
+                          <td>
+                            {{ field }}
+                          </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="S'inscrire" class="button_signup all_button" />
+                </form>
+                <br>
+            </div>
+
+        </th>
+
+
+        <th>
+
+            <div class="common_content form_authentication" id="signup_company_form">
+                <h4 class="title_form_signup">Vous êtes une entreprise?</h4>
+                <hr class="hr_form"><br/>
+
+                <form action="inscription" method="post" enctype="multipart/form-data" name="form_company">
+                    {% csrf_token %}
+                    <table class="table_signup_form" id="company_table_form">
+                        {% for field in signup_company_form %}
+                        <tbody>
+                        <tr>
+                          <!--<td>-->
+                            <!--<label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>-->
+                          <!--</td>-->
+                          <td>
+                              {% if field.label == 'Date creation' %}
+                                {{ field.label }} : {{ field }}
+                              {% else %}
+                                {{ field }}
+                              {% endif %}
+
+                          </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="S'inscrire" class="button_signup all_button" name ="form_company" />
+                </form>
+                <br>
+
+            </div>
+
+        </th>
+
+    </tr>
+
+</table>
+
+{% include 'authentication/footer.html' %}
+
+{% endblock %}

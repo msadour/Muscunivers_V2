@@ -1,0 +1,22 @@
+{% for message in current_conversation %}
+    <tbody>
+        <tr style="line-height:250%">
+            <td>
+                {% if message.1.author.username == user.username %}
+                    <div class="message_author message">
+                        <p style="color:white"> {{ message.1.message }}</p>
+                    </div>
+                {% else %}
+                    <img src="{{ message.0.profil_picture.url }}" class="profil_picture_in_chat" />
+                    <div class="message_receiver message">
+                        {{ message.1.message }}
+                    </div>
+
+                {% endif %}
+
+            </td>
+        </tr>
+
+    </tbody>
+
+{% endfor %}

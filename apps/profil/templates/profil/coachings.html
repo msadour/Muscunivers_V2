@@ -1,0 +1,69 @@
+{% load staticfiles %}
+
+<table border="0" id="user_coaching" class="contain_item_profil services">
+    <div>
+        <tr>
+            <th>
+                <h3> <img src="{% static 'img/icon_title/dumbell.png' %}" class="icon_title" /> Coaching</h3>
+                <hr width="100%"/>
+            </th>
+        </tr>
+
+
+        {% if mode == 'my_profil' %}
+            <tr>
+                <th>
+                    <div class="common_content service_form">
+                        <form method="post" id="coaching_form" action="/create_coaching">
+                            {% csrf_token %}
+                                <table id="table_product_form">
+                                    {% for field in coaching_form %}
+                                        <tbody>
+                                            <tr>
+                                              <td>
+                                                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                                              </td>
+                                              <td>
+                                                {{ field }}
+                                              </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                </table>
+                            <!--<hr style="width:95%; margin-bottom:1%">-->
+                            <br />
+                            <input type="submit" value="Créer" class="button_create_product all_button button_service" />
+                        </form>
+                    </div><br />
+                </th>
+            </tr>
+        {% endif %}
+
+
+        {% for coaching in coachings %}
+            <tr>
+                <th >
+                    <div class="one_service">
+                        <h4>{{ coaching.name }} - {{ coaching.price }} €
+                        {% if mode == 'my_profil' %}
+                                <form method="get" id="{{ coaching.id }}" style="display:inline-block">
+                                    {% csrf_token %}
+                                    <input type="image" src="{% static 'img/icon_delete_comment.png' %}" class="icon_delete_coaching">
+                                </form>
+                            {% endif %}
+                        </h4>
+                        <p>{{ coaching.description }}</p>
+                    </div>
+
+                </th>
+            </tr>
+
+            {% empty %}
+                <tr>
+                    <th><p id="not_coachings">No coaching ..</p></th>
+                </tr>
+        {% endfor %}
+
+    </div>
+</table>
+<br />

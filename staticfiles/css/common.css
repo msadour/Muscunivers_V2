@@ -1,0 +1,104 @@
+/* --------------------- content ---------------------  */
+
+body {
+    background-color : #D8FEEC;
+    width: 98.95%
+}
+
+#body {
+    margin-top: -1.3%;
+}
+
+.common_content {
+    margin-left: 40%
+}
+
+.main_content {
+    margin-left: 30%;
+}
+
+.header_element {
+    width : 70%;
+    height : 60%;
+    background-color : white;
+}
+
+/* --------------------- contacts ---------------------  */
+
+.contacts {
+    width: 15%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: white;
+    border: 1px solid #e9eaed;
+    margin-right:-1.1%;
+}
+
+.one_contact {
+    margin-top: 1%;
+}
+
+
+/* --------------------- Photo ---------------------  */
+
+.profil_picture_contact_chat {
+    max-width: 15%;
+    max-height: 15%;
+    display:inline-block;
+    border-radius: 22px;
+    margin-left: 5%;
+}
+
+/* --------------------- Button ---------------------  */
+
+.all_button {
+    background-color: #00cc99;
+    line-height: 2em;
+    border-radius: 5px;
+    border: solid 1.5px #00586e;
+    color: white;
+    font-weight: bold;
+}
+
+/* --------------------- Feature ---------------------  */
+
+.frame{
+    border: 1px solid #b3ffda;
+}
+
+.all_features {
+    margin-top: 2%;
+}
+
+.badge {
+    margin-left: -37%;
+    margin-top: 8%;
+    background-color: #ff6600;
+}
+
+/* --------------------- Maintenance ---------------------  */
+
+#maintenance {
+    border: solid 1px black;
+    background-color: #F9FCFA;
+    border-radius: 4px;
+    width: 40%;
+    line-height: 2em;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+#content_maintenance {
+    margin-left: 6%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#hr_maintenance {
+    margin-left: -6%;
+}
+
+#text_maintenance {
+    font-weight: bold
+}

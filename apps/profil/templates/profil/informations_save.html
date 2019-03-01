@@ -1,0 +1,139 @@
+{% load staticfiles %}
+<table id="user_information" border="0" class="contain_item_profil frame">
+    <div>
+        <tr>
+            <th>
+                <h3> <img src="{% static 'img/icon_title/information.png' %}" class="icon_title" /> Information</h3>
+                <hr width="100%"/>
+            </th>
+        </tr>
+
+        {% if mode == 'my_profil' %}
+            <tr>
+
+                <th>
+
+                    <div class="common_content " id="information_div_form">
+                        <form action="/update_profil" method="post" id="update_profil_form">
+                            {% csrf_token %}
+                            <table >
+                                {% for field in update_form %}
+                                <tbody>
+                                <tr>
+                                  <td>
+                                    <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                                  </td>
+                                  <td>
+                                    {{ field }}
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                            <!--<img src="../../{{ current_user.profil_picture.url }}" />-->
+                            <br />
+                            <input type="submit" value="Mettre à jour" class="all_button" id="button_update" />
+                        </form>
+
+                    </div>
+                    <br />
+                </th>
+            </tr>
+        {% endif %}
+
+        {% if informations.get_type_user == 'Company' %}
+
+            <tr>
+                <th>
+                    <h4>Entreprise</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ informations.user }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Categorie</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ informations.category }}</p>
+                </th>
+
+            </tr>
+
+        {% else %}
+            <tr>
+                <th>
+                    <h4>Nom d'utilisateur</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ informations.user }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Nom</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ informations.user.last_name }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Prénom</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ informations.user.first_name }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Sexe</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">
+                        {% if informations.gender == 'Man' %}
+                            Homme
+                        {% else %}
+                            Femme
+                        {% endif %}
+
+                    </p>
+                </th>
+
+            </tr>
+
+
+
+            <tr>
+                <th>
+                    <h4>Ville</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">Live in {{ informations.city }}</p>
+                </th>
+
+            </tr>
+
+
+        {% endif %}
+
+        {% if informations.get_type_user == 'Company' %}
+
+            <tr>
+                <th>
+                    <h4>Lieu</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">Based at : {{ informations.place }}</p>
+                </th>
+
+            </tr>
+        {% endif %}
+
+    </div>
+</table>
+<br />
+

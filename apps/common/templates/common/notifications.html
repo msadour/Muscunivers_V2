@@ -1,0 +1,54 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="all_features frame" id="notifications">
+    <table id="table_notification" border="0">
+        <tr>
+            <th>
+                <h4> <img src="{% static 'img/icon_title/notification.png' %}" class="icon_title" />  Notification(s)</h4>
+                <hr width="100%">
+
+            </th>
+        </tr>
+
+        {% for notification in notifications %}
+            {% if notification.is_read == False %}
+                <tr>
+                    <th style="line-weight: 20%; background-color:#cce5d5" class="new_notification">
+            {% else %}
+                <tr>
+                    <th style="line-weight: 20%;">
+            {% endif %}
+                        <a href="{% url 'one_publication' notification.status.id  %}">
+                            <p>({{ notification.date }}) {{ notification.name }}</p>
+                        </a>
+                    </th>
+                </tr>
+
+
+            {% empty %}
+                <tr>
+                    <th>
+                        <p id="not_notification">Rien de nouveau ..</p>
+                    </th>
+                </tr>
+
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+    setInterval(function(){
+        $.ajax({
+           url: '/update_new_notifications',
+              data: {},
+              success: function(data) {
+                $('.new_notification').css('background-color', '')
+                $('#badge_notification').html('')
+              }
+        });
+
+}, 2000)
+
+</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+#result_search {
+    margin-left: 25%;
+    width: 70%;
+}
+
+.each_result {
+    width: 70%;
+    background-color: white; /*#00586e;*/
+}
+
+.profil_picture_search {
+    max-width: 15%;
+    max-height: 15%;
+    display:inline-block;
+    margin-left: 5%;
+}
+
+.button_search{
+    margin-left : 40%;
+}

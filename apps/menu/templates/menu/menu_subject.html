@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="row navbar menu_profil">
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-1"></div>
+
+
+    <a href="#" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Main</p>
+        </div>
+    </a>
+
+
+    <a href="#" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Info</p>
+        </div>
+    </a>
+
+    {% if current_subject.author == current_user %}
+        <a href="#" class="text_color">
+            <div class="col-md-1 item_menu color_hover">
+                <p class="text_item_menu">Manage</p>
+            </div>
+        </a>
+    {% endif %}
+
+    <a href="#" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Followers</p>
+        </div>
+    </a>
+
+
+
+    <div class="col-md-3"></div>
+
+</nav >
+
+

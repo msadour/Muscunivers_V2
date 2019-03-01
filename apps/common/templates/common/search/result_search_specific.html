@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+{% include 'menu/menu_search.html' %}
+<br />
+<div id="result_search">
+    <table border="0" class="each_result frame">
+        <tr>
+            <th>
+                <h4>{{category}}</h4>
+                <hr width="100%">
+            </th>
+        </tr>
+        {% for result in results %}
+            <tr>
+                <th>
+                    <img src="{{ result.0.profil_picture.url }}" class="profil_picture_search" />
+                    <a href="{% url 'get_profil_user' result.0.user.id %}">{{ result.0.user }} </a>
+
+                    {% include 'common/search/result_button.html' %}
+                    <hr width="100%">
+
+                </th>
+            </tr>
+        {% empty %}
+            <tr>
+                <th>
+                    No result
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock %}

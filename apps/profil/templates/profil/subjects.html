@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+
+<div class="table_main_element">
+    {% if mode == 'my_profil' %}
+        <form method="post" id="publish_form" action="/create_subject">
+            {% csrf_token %}
+                <table >
+                    {% for field in subject_form %}
+                        <tbody>
+                            <tr>
+                              <td>
+                                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                              </td>
+                              <td>
+                                {{ field }}
+                              </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
+            <br>
+            <hr style="width:95%; margin-bottom:1%">
+            <input type="submit" value="Creer" class="button_share all_button"/>
+        </form>
+    {% endif %}
+
+    <br />
+
+    <!--<div id="all_publications">-->
+    {% for subject in subject_profil %}
+        {% if subject.author == user %}
+            <table border="0" class="one_publication">
+                <tr>
+                    Your subject(s)
+                    <th >
+                        <div class="content_publication">
+
+                            <a href="/subject/{{subject.id}}/main"> {{ subject.name }} </a>
+                        </div>
+
+                    </th>
+                </tr>
+
+            </table>
+            <br>
+        {% else %}
+
+            <table border="0" class="one_publication">
+                <tr>
+                    Your following subjects
+                    <th >
+                        <div class="content_publication">
+
+                            {{ subject }}
+                        </div>
+
+                    </th>
+                </tr>
+
+            </table>
+            <br>
+        {% endif %}
+    {% empty %}
+            <p id="not_group">Aucun sujet ..</p>
+    {% endfor %}
+
+</div>

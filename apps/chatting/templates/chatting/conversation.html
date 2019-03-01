@@ -1,0 +1,112 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <table class="main_content all_features frame" id="messaging" border="1">
+        <tr>
+            <th id="search_label">
+                <form action="/go_to_chat_by_search_form" method="post" id="search_form_chatting">
+                    {% csrf_token %}
+                    <table>
+                        {% for field in search_form_user %}
+                            <tbody>
+                            <tr>
+
+                              <td>
+                                {{ field }}
+                              </td>
+                            </tr>
+                        {% endfor %}
+                            </tbody>
+                    </table>
+                </form>
+            </th>
+
+
+            <th id="name_user_label">
+                {% if contact == 'No contact' %}
+                    Aucun contact
+                {% else %}
+
+                    <a href="{% url 'profil' contact.user.id 'wall' %}">{{ contact.user }}</a>
+                {% endif %}
+            </th>
+
+
+        </tr>
+        <tr>
+            <th id="conversation_label">
+                <table border="0" id="conversations" >
+                    {% for conversation in conversations %}
+                        <tbody>
+                            <tr class="conversation" style="line-height:250%">
+                                <td>
+                                    <a href="{% url 'chattings' conversation.0.user %}">
+                                        <div class="color_hover">
+                                            <img src="{{ conversation.0.profil_picture.url }}" class="profil_picture_contact_chat" />
+                                            <p class="conversation_username"> {{ conversation.0.user.username }} </p>
+                                            {% if conversation.1 == True %}
+                                                <p class="unread_text">(nouveau)</p>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <p>Aucune conversation ..</p>
+                    {% endfor %}
+                        </tbody>
+                </table>
+
+            </th>
+
+            <th id="message_label">
+                {% if current_conversation == None %}
+                    <p>Rien à afficher ..</p>
+                {% else %}
+                    <div id="messages_scroll">
+                        <table border="0" id="messages" >
+
+                        </table>
+                    </div>
+
+                {% endif %}
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th></th>
+            <th>
+                <form method="post" name="{{ contact.user.id }}" id="message_input">
+                    {% csrf_token %}
+                    <table >
+                        {% for field in message_form %}
+                            <tbody>
+                                <tr>
+                                  <td>
+                                    <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+                                  </td>
+                                  <td>
+                                    {{ field }}
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+
+                    </table>
+
+
+                </form>
+
+            </th>
+
+
+        </tr>
+
+
+    </table>
+    <br />
+
+    <script type="text/javascript" src="{% static 'js/message.js' %}"></script>
+{% endblock %}

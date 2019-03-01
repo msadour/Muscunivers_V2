@@ -1,0 +1,81 @@
+{% load static %}
+<nav class="row menu navbar">
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-1 img_main_menu">
+            <a href="{% url 'go_to_main' %}">
+                <img src="{% static 'img/icon.png' %}">
+            </a>
+        </div>
+
+        <div class="col-md-1">
+
+            <form action="/search_users" method="post" id="form_menu">
+                {% csrf_token %}
+                {{ search_form }}
+            </form>
+
+        </div>
+
+        <div class="col-md-3"></div>
+
+
+        <div class="col-md-1 img_main_menu">
+            <a href="{% url 'go_to_request_contact' %}">
+                <img src="{% static 'img/icon_contact.png' %}">
+                <span id="badge_request_contact" class="badge"></span>
+            </a>
+        </div>
+
+
+        <div class="col-md-1 img_main_menu">
+            <a href="{% url 'chattings' %}">
+                <img src="{% static 'img/icon_message.png' %}">
+                <span id="badge_message" class="badge"></span>
+            </a>
+        </div>
+
+
+        <div class="col-md-1 img_main_menu">
+            <a href="{% url 'notification' %}">
+                <img src="{% static 'img/icon_notification.png' %}">
+                <span id="badge_notification" class="badge"></span>
+            </a>
+        </div>
+
+
+        <div class="col-md-1 img_main_menu">
+            <img src="{{ my_profil.profil_picture.url }}" class="profil_picture_menu" />
+        </div>
+
+
+
+        <div class="col-md-1"></div>
+
+</nav >
+
+
+<nav id="nav_submenu_scrolldown" >
+    <div id="submenu_scrolldown" class="frame">
+        <br />
+        <ul>
+            <li class="item_submenumenu">
+                <a href="{% url 'profil' %}" > Profil </a>
+                <hr class="hr_submenu" />
+            </li>
+
+
+            <li class="item_submenumenu">
+                <a href="{% url 'settings' %}"> Settings</a>
+                <hr class="hr_submenu" />
+            </li>
+
+
+
+            <li class="item_submenumenu"><a href="{% url 'logout' %}"> Logout</a></li>
+
+        </ul>
+    </div>
+</nav>
+

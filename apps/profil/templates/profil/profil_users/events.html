@@ -1,0 +1,12 @@
+<table class="contacts" border="1">
+    <th>
+        <div>
+            {% for event in events_users %}
+                <p>events</p>
+                {% empty %}
+                    <p id="not_event">This user don't have event ..</p>
+
+            {% endfor %}
+        </div>
+    </th>
+</table>

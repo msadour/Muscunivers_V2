@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<table border="0" id="user_contacts" class="contain_item_profil frame">
+    <div >
+        <tr>
+            <th>
+                <h3> <img src="{% static 'img/icon_title/contacts.png' %}" class="icon_title" /> Contacts</h3>
+                <hr width="100%"/>
+            </th>
+        </tr>
+        {% for contact in contacts %}
+            <tr>
+                <th id="{{contact.id}}">
+                    <div class="one_contact frame">
+                        <img src="{{ contact.profil_picture.url }}" class="profil_picture_contact" />
+
+                        <a href="{% url 'get_profil_user' contact.user.id %}" class="text_color"> {{ contact.user.username }} </a>
+                        <button value="decline" type="submit" class="remove_friend_button" name="{{contact.user.id}}">
+                                    <img src="{% static 'img/cancel.png' %}"> Connecté </button>
+
+                    </div>
+
+                </th>
+            </tr>
+            {% empty %}
+                <tr>
+                    <th>
+                        <p id="not_contacts">Aucun contact ..</p>
+                    </th>
+                </tr>
+
+        {% endfor %}
+        <br />
+    </div>
+
+</table>
+<br />

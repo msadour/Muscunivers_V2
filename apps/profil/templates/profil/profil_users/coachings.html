@@ -1,0 +1,13 @@
+
+<table class="contacts" border="1">
+    <th>
+        <div>
+            {% for coaching in coachings_users %}
+                <p>coaching</p>
+                {% empty %}
+                    <p id="not_coachings">This user don't have coachings ..</p>
+
+            {% endfor %}
+        </div>
+    </th>
+</table>

@@ -1,0 +1,86 @@
+/* --------------------------- Table --------------------------- */
+
+.table_signup_form {
+    margin-left: 10%;
+}
+
+#company_table_form {
+    margin-bottom: 16%;
+}
+
+/* --------------------------- widget --------------------------- */
+
+.hr_form {
+    width: 30% ;
+    border-color: #00586e;
+}
+
+.title_form_signup {
+    text-align:center
+}
+
+#icon_title {
+    margin-left: 2%
+}
+
+#errors {
+    border: solid 1px black;
+    background-color: #F9FCFA;
+    border-radius: 4px;
+    width: 25%;
+    margin-left: 38%;
+    margin-bottom: 2%;
+}
+
+.select_input{
+    width: 60%;
+    height: 30px;
+}
+
+/* --------------------------- form --------------------------- */
+
+.form_connection{
+    margin-top: 0.5%
+}
+
+#form_email {
+    margin-left: 8%
+}
+
+#form_password {
+    margin-left: 2%
+}
+
+.form_authentication{
+    border: solid 1px black;
+    width: 165%;
+    background-color: #F9FCFA;
+    border-radius: 4px;
+}
+
+#all_forms_authentication {
+    margin-left: 2%;
+    margin-top: 3%;
+}
+
+#signup_company_form {
+    margin-left: 205%;
+    width: 184%;
+}
+
+.input_authentication {
+    margin-top: 3%
+}
+
+/* --------------------------- button --------------------------- */
+
+
+#button_connection {
+    width:8%;
+    margin-left: 2%;
+}
+
+.button_signup{
+    width:20%;
+    margin-left: 40%
+}

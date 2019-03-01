@@ -1,0 +1,104 @@
+{% load staticfiles %}
+<table id="user_information" border="0" class="contain_item_profil frame">
+    <div>
+        <tr>
+            <th>
+                <h3> <img src="{% static 'img/icon_title/information.png' %}" class="icon_title" /> Information</h3>
+                <hr width="100%"/>
+            </th>
+        </tr>
+
+        {% if user_profil.get_type_user == 'Company' %}
+
+            <tr>
+                <th>
+                    <h4>Entreprise</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ current_user.user }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Categorie</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ current_user.category }}</p>
+                </th>
+
+            </tr>
+
+        {% else %}
+            <tr>
+                <th>
+                    <h4>Nom d'utilisateur</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ current_user.user }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Nom</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ current_user.user.last_name }}</p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Prénom</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">{{ current_user.user.first_name }} </p>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>
+                    <h4>Sexe</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">
+                        {% if current_user.gender == 'Man' %}
+                            Homme
+                        {% else %}
+                            Femme
+                        {% endif %}
+
+                    </p>
+                </th>
+
+            </tr>
+
+
+
+            <tr>
+                <th>
+                    <h4>Ville</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">Live in {{ current_user.city }}</p>
+                </th>
+
+            </tr>
+
+
+        {% endif %}
+
+        {% if informations.get_type_user == 'Company' %}
+
+            <tr>
+                <th>
+                    <h4>Lieu</h4>
+                    <hr class="hr_information">
+                    <p class="text_information">Based at : {{ current_user.place }}</p>
+                </th>
+
+            </tr>
+        {% endif %}
+
+    </div>
+</table>
+<br />
+

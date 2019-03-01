@@ -1,0 +1,120 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<table class="profil" border="0">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <div id="header_profil" class="frame">
+                    <!--<br />-->
+                    <h2> {{ current_user.get_type_user }} </h2>
+                    <hr id="hr_head_profil" />
+                    <p id="username_profil"> {{ current_user.user.username }}</p>
+                    <img src="{{ current_user.profil_picture.url }}" class="profil_picture" />
+
+
+                    <br>
+                    {% if mode == 'profil_contact' %}
+
+                        <div id="buttons_contact_profil">
+                            <table border="0" style="width:70%">
+                                <tr>
+                                    <td>
+                                        {% if type_contact == 'add_contact' %}
+                                            <button value="add" type="submit" class="add_button button_profil" name="{{current_user.user.id}}">
+                                                <img src="{% static 'img/add.png' %}"> <p class="text_color">Add</p> </button><br>
+
+                                        {% elif type_contact == 'connected' %}
+
+                                            <button value="Connected" class="connected_button button_profil" type="submit" name="{{current_user.user.id}}" >
+                                                Connected
+                                            </button><br>
+
+                                        {% elif type_contact == 'wait_answer' %}
+
+                                            <button value="accept?" class="accept_button button_profil" type="submit" name="{{current_user.user.id}}" >
+                                                <p class="text_color">Accept?</p>
+                                            </button><br>
+
+                                        {% elif type_contact == 'request_sent' %}
+
+                                            <button value="Request send" class="request_send_button button_profil" type="submit" name="{{current_user.user.id}}" >
+                                                <img src="{% static 'img/cancel.png' %}">
+                                                <p class="text_color">Request send</p>
+                                            </button><br>
+
+                                        {% elif type_contact == 'join' %}
+
+                                            <button value="join" class="join_button button_profil" type="submit" name="{{current_user.user.id}}">
+                                                <img src="{% static 'img/add.png' %}">
+                                                <p class="text_color">Join</p>
+                                            </button><br>
+
+                                        {% else %}
+                                            <button value="add" type="submit" class="add_button button_profil" name="{{current_user.user.id}}">
+                                                <img src="{% static 'img/add.png' %}">
+                                                <p class="text_color">Add</p>
+                                            </button><br>
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        <a href="{% url 'chattings' current_user.user %}">
+                                            <button value="Message send" class="message_send_button button_profil" type="submit" name="{{current_user.user.id}}" >
+                                                <img src="{% static 'img/icon_message_profil.png' %}"> <p class="text_color" id="text_message">Message</p>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    {% endif %}
+
+                    {% include 'menu/menu_users.html' %}
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th id="th_info_profil">
+                <div id="info_profil">
+                    {% include 'profil/informations.html' %}
+                </div>
+
+            </th>
+            <th id="th_features_profil">
+                <div id="features_profil">
+                    {% if window == 'wall' %}
+                        <div id="publications_profil">
+                            {% include 'common/publication/status.html' %}
+                        </div>
+
+                    {% elif window == 'events' %}
+                        {% include 'profil/events.html' %}
+
+                    {% elif window == 'subjects' %}
+                        {% include 'profil/subjects.html' %}
+
+                    {% elif window == 'contacts' %}
+                            {% include 'profil/contacts.html' %}
+
+                    {% elif window == 'employees' %}
+                        {% include 'profil/employees.html' %}
+
+                    {% elif window == 'products' %}
+                        {% include 'profil/products_to_sell.html' %}
+
+                    {% elif window == 'coachings' %}
+                        {% include 'profil/coachings.html' %}
+                    {% endif %}
+                </div>
+            </th>
+
+        </tr>
+    </tbody>
+</table>
+
+
+{% endblock %}

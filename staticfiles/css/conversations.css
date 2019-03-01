@@ -1,0 +1,109 @@
+/* --------------------- table ---------------------  */
+#first_col {
+    width: 25%;
+}
+
+#messages {
+    width: 95%;
+    margin-left: 2.5%;
+    /*margin-top: -44%;*/
+    top: 0
+
+}
+
+#messages_scroll {
+    overflow-y: scroll;
+    height: 500px;
+    /*border: 1px solid black;*/
+    top : 0
+}
+/* --------------------- Conversations ---------------------  */
+
+#message_label {
+    /*border: 1px solid red;*/
+    top : 0
+}
+
+#conversation_label, #list_message{
+    height: 570px
+}
+
+#conversation_label {
+    width:20%;
+}
+
+#conversations {
+    width:100%;
+    top: 10;
+    margin-bottom: 200%;
+}
+
+.conversation {
+    height: 50%;
+}
+
+/* --------------------- Messages ---------------------  */
+
+#messaging {
+    background-color: white;
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+.message {
+    border-radius: 7px;
+    max-width: 65%;
+}
+
+.message_receiver {
+    background-color: #D8FEEC;
+    margin-left: 1%;
+    margin-top: 1%;
+    display:inline-block;
+}
+
+.message_author {
+    background-color: #00586e;
+    margin-left: 33.5%;
+    margin-top: 1%;
+}
+
+/* --------------------- Other ---------------------  */
+
+
+#message_form {
+    white-space: nowrap;
+}
+
+#name_user_label {
+    text-align: center;
+}
+
+.profil_picture_contact_chat {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display:inline-block;
+}
+
+.conversation_username, .unread_text {
+    display:inline-block;
+}
+
+.profil_picture_in_chat {
+    display:inline-block;
+    max-width: 10%;
+    max-height: 10%;
+    border-radius: 22px;
+}
+
+#search_form_chatting {
+    margin-top: 2%;
+    margin-left: 0%;
+    /*width: 60%;*/
+    border-radius: 7px;
+}
+
+
+#input_search_user_chatting {
+    border-radius: 7px;
+}

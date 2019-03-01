@@ -1,0 +1,22 @@
+{% load static %}
+<nav class="row menu navbar">
+    <form action="connection" method="post" id="connexion_form">
+        {% csrf_token %}
+        <table >
+            <img src="{% static 'img/icon_title.png' %}" id="icon_title">
+            {% for field in connection_form %}
+            <tbody>
+            <th>
+              <tr>
+                <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+              </tr>
+              <tr>
+                {{ field }}
+              </tr>
+            </th>
+            {% endfor %}
+            </tbody>
+            <input type="submit" value="Connection" id="button_connection" class="all_button"/>
+        </table>
+    </form>
+</nav >

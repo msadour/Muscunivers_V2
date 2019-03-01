@@ -1,0 +1,73 @@
+{% load static %}
+<nav class="row menu_profil frame navbar">
+
+    <div class="col-md-1 item_menu"></div>
+
+
+    <a href="{% url 'profil' current_user.user.id 'wall' %}" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Mur</p>
+        </div>
+    </a>
+
+    <a href="{% url 'profil' current_user.user.id 'subjects' %}" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Theme</p>
+        </div>
+    </a>
+
+    <a href="{% url 'profil' current_user.user.id 'events' %}" class="text_color">
+        <div class="col-md-1 item_menu color_hover">
+            <p class="text_item_menu">Evenement</p>
+        </div>
+    </a>
+
+    {% if current_user.get_type_user == 'Company'  %}
+        <a href="{% url 'profil' current_user.user.id 'employees' %}" class="text_color">
+            <div class="col-md-1 item_menu color_hover">
+                <p class="text_item_menu">Employées</p>
+            </div>
+        </a>
+
+    {% else %}
+
+        <a href="{% url 'profil' current_user.user.id 'contacts' %}" class="text_color">
+            {% if current_user.get_type_user == 'Athlete'  %}
+                <div class="col-md-1 item_menu item_menu_border_right color_hover">
+            {% else %}
+                    <div class="col-md-1 item_menu color_hover">
+            {% endif %}
+                <p class="text_item_menu">Contacts</p>
+            </div>
+        </a>
+    {% endif %}
+
+    {% if current_user.get_type_user == 'Coach'  %}
+        <a href="{% url 'profil' current_user.user.id 'coachings' %}" class="text_color">
+            <div class="col-md-1 item_menu item_menu_border_right color_hover">
+                <p class="text_item_menu">Coachings</p>
+
+            </div>
+        </a>
+    {% endif %}
+
+
+    {% if current_user.get_type_user == 'Company'  %}
+        <a href="{% url 'profil' current_user.user.id 'products' %}" class="text_color">
+            <div class="col-md-1 item_menu item_menu_border_right">
+                <p class="text_item_menu">Produits</p>
+
+            </div>
+        </a>
+
+    {% else %}
+        <div class="col-md-1 item_menu"></div>
+    {% endif %}
+
+
+    <div class="col-md-1 item_menu"></div>
+
+
+    <div class="col-md-1 item_menu"></div>
+
+</nav >

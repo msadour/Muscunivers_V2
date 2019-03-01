@@ -1,0 +1,36 @@
+{% load staticfiles %}
+    {% if result.1 == 'add_contact' %}
+        <button value="add" type="submit" class="add_button button_search" name="{{result.0.user.id}}">
+            <img src="{% static 'img/add.png' %}"> Ajouter </button>
+
+    {% elif result.1 == 'connected' %}
+
+        <button value="Connected" class="connected_button button_search" type="submit" name="{{result.0.user.id}}" >
+            Connecté
+        </button>
+
+    {% elif result.1 == 'wait_answer' %}
+
+        <button value="accept?" class="accept_button button_search" type="submit" name="{{result.0.user.id}}" >
+            Accepter?
+        </button>
+
+    {% elif result.1 == 'request_sent' %}
+
+        <button value="Request send" class="request_send_button button_search" type="submit" name="{{result.0.user.id}}" >
+            <img src="{% static 'img/cancel.png' %}"> Demande envoyée
+        </button>
+
+    {% elif result.1 == 'join' %}
+
+        <button value="join" class="join_button button_search" type="submit" name="{{result.0.user.id}}">
+            <img src="{% static 'img/add.png' %}"> Joindre
+        </button>
+
+    {% elif result.1 == 'employed' %}
+
+        <button value="Connected" class="connected_button button_search" type="submit" name="{{result.0.user.id}}" >
+            Employée
+        </button>
+
+    {% endif %}

@@ -1,0 +1,34 @@
+{% load static %}
+<nav class="row menu_search frame navbar">
+
+    <div class="col-md-1 item_menu"></div>
+
+    <a href="{% url 'search_specific' all_url search %}">
+        <div class="col-md-1 item_menu_search item_menu color_hover"> <!-- item_menu -->
+            <p class="text_item_menu">Tout</p> <!-- class="text_item_menu" -->
+        </div>
+    </a>
+
+    <a href="{% url 'search_specific' athlete_url search %}">
+        <div class="col-md-1 item_menu_search item_menu color_hover">
+            <p class="text_item_menu">Athlete </p>
+        </div>
+    </a>
+
+    <a href="{% url 'search_specific' coach_url search %}">
+        <div class="col-md-1 item_menu_search item_menu color_hover">
+            <p class="text_item_menu">Coach</p>
+        </div>
+    </a>
+
+    <a href="{% url 'search_specific' company_url search %}">
+        <div class="col-md-1 item_menu_search item_menu item_menu_border_right color_hover">
+            <p class="text_item_menu">Entreprise</p>
+        </div>
+    </a>
+
+
+    <div class="col-md-1 item_menu"></div>
+    <!--<div class="col-md-1 item_menu"></div>-->
+
+</nav >

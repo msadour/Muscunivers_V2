@@ -1,0 +1,12 @@
+<table class="products" border="1">
+    <th>
+        <div>
+            {% for product in products_users %}
+                <p>product</p>
+                {% empty %}
+                    <p id="not_products">This user don't have products ..</p>
+
+            {% endfor %}
+        </div>
+    </th>
+</table>

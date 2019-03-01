@@ -1,0 +1,12 @@
+<table class="contacts" border="1">
+    <th>
+        <div>
+            {% for contact in contacts %}
+                <p>{{ contact.username }}</p>
+                {% empty %}
+                    <p id="not_contacts">You don't have contacts ..</p>
+
+            {% endfor %}
+        </div>
+    </th>
+</table>

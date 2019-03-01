@@ -1,0 +1,25 @@
+<table class="contacts frame" border="0">
+    <th>
+        <div>
+            <table border="0" style="width:100%" >
+                {% for contact in contacts %}
+                    <tr>
+                        <th style="line-height:250%">
+                            <a href="{% url 'chattings' contact.user %}">
+                                <div class="color_hover">
+                                    <img src="{{ contact.profil_picture.url }}" class="profil_picture_contact_chat" />
+
+                                        {{ contact.user }}
+
+                                </div>
+                            </a>
+                        </th>
+                    </tr>
+                {% empty %}
+                    <p id="not_contacts">Aucun contacts ..</p>
+                {% endfor %}
+            </table>
+
+        </div>
+    </th>
+</table>

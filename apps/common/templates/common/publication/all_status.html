@@ -1,0 +1,80 @@
+{% load staticfiles %}
+{% for status in all_status %}
+    <table border="0" class="one_publication">
+        <tr>
+            <!--<th>-->
+                <!--<img src="{{ status.0.profil_picture.url }}" class="profil_picture_in_publication" />-->
+            <!--</th>-->
+            <th >
+                <div class="content_publication">
+
+                    <p class="username_publication" >{{status.1.author.username}}</p>
+                    {% if status.1.author.id == user.id %}
+                        <form method="get" id="{{ status.1.id }}" style="display:inline-block">
+                            {% csrf_token %}
+                            <input type="image" src="{% static 'img/icon_delete_comment.png' %}" class="icon_delete">
+                        </form>
+                    {% endif %}
+
+                     <p class="message_publication">{{status.1.message}}</p>
+                    <br>
+                    <p class="date_publication">{{status.1.date}}</p>
+                </div>
+
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <hr style="width:100%; ">
+                {% for comment in status.1.get_comments %}
+                    <div class="one_comment">
+                        <p class="username_publication">{{comment.author.username}}  </p>
+                        {% if comment.author.id == user.id %}
+                            <form method="get" id="{{ comment.id }}" style="display:inline-block">
+                                {% csrf_token %}
+                                <input type="image" src="{% static 'img/icon_delete_comment.png' %}" class="icon_delete_comment">
+                            </form>
+                        {% endif %}
+
+                        <p class="message_publication">{{comment.message}}</p> <br />
+                        <p class="date_publication">{{comment.date}}</p>
+
+                    </div>
+
+                {% endfor %}
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <br />
+                <form method="post" name="{{ status.1.id }}">
+                    {% csrf_token %}
+                    <table id="comment_form" border="0">
+                        {% for field in comment_form %}
+                        <tbody>
+                        <tr>
+
+                          <td>
+                            {{ field }}
+                          </td>
+                            <td>
+                                <input type="submit" value="Commenter" class="button_comment all_button"/>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </form>
+            </th>
+
+        </tr>
+
+    </table>
+    <br>
+
+    {% empty %}
+        <p id="not_publication">Aucune publication ..</p>
+{% endfor %}

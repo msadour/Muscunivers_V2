@@ -1,0 +1,44 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<table class="profil" border="0">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <div id="header_profil" class="frame">
+                    <!--<br />-->
+                    <h2> {{ current_subject.name }} </h2>
+                    <hr id="hr_head_profil" />
+                    <img src="{{ group_photo }}"  />
+
+                    {% include 'menu/menu_subject.html' %}
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th id="th_features_group">
+                <div id="features_group">
+
+                    {% if window == 'main' %}
+                        {% include 'common/publication/status.html' %}
+
+                    {% elif window == 'info' %}
+                        {% include 'subject/info.html' %}
+
+                    {% elif window == 'manage' %}
+                        {% include 'subject/manage.html' %}
+
+                    {% elif window == 'followers' %}
+                        {% include 'subject/members.html' %}
+
+                    {% endif %}
+                </div>
+            </th>
+
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

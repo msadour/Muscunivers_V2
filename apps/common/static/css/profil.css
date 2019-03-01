@@ -1,0 +1,171 @@
+/* --------------------- Profil header ---------------------  */
+.profil {
+    margin-left: 19%;
+    max-width: 60%;
+    min-width: 60%;
+}
+
+#hr_head_profil {
+    width: 90%;
+    border-color: #00586e;
+}
+
+#profil_elements_th {
+    width: 85%;
+}
+
+#contacts_profil {
+    width : 130%;
+    margin-top: 0%
+}
+
+#header_profil {
+    height: 30%;
+    width: 100%;
+    background-color: white;
+    margin-left: 0%;
+    margin-top: 0%;
+}
+
+#buttons_contact_profil {
+    margin-left: 32%;
+}
+
+.message_send_button {
+    margin-left: 5%;
+}
+
+#text_message {
+    display: inline-block
+}
+
+/* --------------------- Pictures ---------------------  */
+
+.profil_picture {
+    max-width: 300px;
+    max-height: 260px%;
+    display: block;
+    margin-left: 32%;
+}
+
+.profil_picture_contact {
+    max-width: 20%;
+    max-height: 20%;
+    display:inline-block;
+}
+
+/* --------------------- Common ---------------------  */
+
+#user_contacts {
+    margin-top: -2.1%;
+}
+
+.contain_item_profil {
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.one_service {
+    background-color: #cce5d5;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 5px;
+    line-height: 2em;
+}
+
+/* --------------------- contacts ---------------------  */
+
+
+
+.one_contact {
+    margin-top: 5%;
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.remove_friend_button {
+    margin-left : 45%;
+}
+
+/* --------------------- informations ---------------------  */
+
+#information{
+    background-color: #cce5d5;
+}
+
+#information_div_form {
+    border: solid 1px black;
+    background-color: #F9FCFA;
+    border-radius: 4px;
+    width: 70%;
+    margin-left: 15%;
+}
+
+#update_profil_form {
+    margin-left: 6%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*margin-left: -50%;*/
+}
+
+
+.hr_information {
+    width:90%;
+    margin-top:2%;
+    border-color: #00586e;
+}
+
+#button_update {
+    width: 50%;
+    margin-left : 22%;
+}
+
+/* --------------------- products ---------------------  */
+
+.service_form{
+    border: solid 1px black;
+    background-color: #F9FCFA;
+    border-radius: 4px;
+    margin-left: 25%;
+    width: 50%;
+}
+
+#product_form, #coaching_form {
+    margin-left: 6%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*border : 2px solid #00586e;*/
+}
+
+
+/* --------------------- coaching ---------------------  */
+
+#coaching {
+    background-color: #cce5d5;
+}
+
+.button_service {
+    width: 50%;
+    margin-left : 21%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

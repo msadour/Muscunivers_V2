@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<table border="0" class="contain_item_profil frame">
+    <div >
+        <tr>
+            <th>
+                <h3> <img src="{% static 'img/icon_title/contacts.png' %}" class="icon_title" /> Employees</h3>
+                <hr width="100%"/>
+            </th>
+        </tr>
+        {% for employee in employees %}
+            <tr>
+                <th id="{{employee.id}}">
+                    <div class="one_contact frame">
+                        <img src="{{ employee.profil_picture.url }}" class="profil_picture_contact" />
+
+                        <a href="{% url 'get_profil_user' employee.id %}" class="text_color"> {{ employee.user.username }} </a>
+                        <button value="decline" type="submit" class="remove_friend_button" name="{{employee.id}}">
+                                    <img src="{% static 'img/cancel.png' %}"> Employé </button>
+
+                    </div>
+
+                </th>
+            </tr>
+            {% empty %}
+                <tr>
+                    <th>
+                        <p id="not_employees">Aucun employée ..</p>
+                    </th>
+                </tr>
+
+        {% endfor %}
+        <br />
+    </div>
+
+</table>
+<br />

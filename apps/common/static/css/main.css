@@ -1,0 +1,16 @@
+
+.main_element {
+    border : 0px solid black
+}
+
+#events_main {
+    width: 120%;
+    margin-bottom : 100%;
+}
+
+
+#contacts_main {
+    width: 120%;
+    margin-left : 175%;
+    margin-bottom : 100%;
+}
