@@ -10,6 +10,11 @@ from django.template.loader import render_to_string
 
 
 def get_number_new_message(request):
+    """
+    This function get the number of unread message (to display in icon message)
+    :param request:
+    :return:
+    """
     discussions_with_new_message = []
     for discussion in get_object_user(request.user).discussions.all():
         for message in discussion.messages.all():
@@ -21,6 +26,12 @@ def get_number_new_message(request):
 
 @login_required
 def go_to_chat(request, contact=None):
+    """
+    go to the chatroom.
+    :param request:
+    :param contact:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     my_user = get_object_user(request.user.id)
     if len(my_user.discussions.all()) == 0:
@@ -60,6 +71,11 @@ def go_to_chat(request, contact=None):
 
 
 def update_conversation(request):
+    """
+    Update all conversation
+    :param request:
+    :return:
+    """
     contact = get_object_user(int(request.GET.get('contact', None)))
     my_user = get_object_user(request.user.id)
     data['current_conversation'] = [(get_object_user(item.author), item) for item in
@@ -73,6 +89,11 @@ def update_conversation(request):
 
 @login_required
 def go_to_chat_by_search_form(request):
+    """
+    Going to a conversation by using search form
+    :param request:
+    :return:
+    """
     if request.method == 'POST':
         search_form_chat = message_form.SearchUserMessageForm(request.POST)
         if search_form_chat.is_valid():
@@ -82,6 +103,11 @@ def go_to_chat_by_search_form(request):
 
 
 def see_conversations_by_search(request):
+    """
+    Getting a conversation by using search form
+    :param request:
+    :return:
+    """
     my_user = get_object_user(request.user)
     search = request.GET.get('search', None)
     result = []
@@ -97,6 +123,11 @@ def see_conversations_by_search(request):
 
 
 def send_message(request):
+    """
+    send a message to a user
+    :param request:
+    :return:
+    """
     my_user = get_object_user(request.user.id)
     user_contact = get_object_user(int(request.GET.get('user', None)))
     message = request.GET.get('message', None)

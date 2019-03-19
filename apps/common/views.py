@@ -6,12 +6,20 @@ from apps.common.common_data_imports import data
 from apps.common.features import *
 from django.http import HttpResponse
 from apps.menu.views import go_to_settings
+from .models import RequestContact
+from django.db.models import Q
 
 
 # ------------------- request contact -------------------
 
 
 def accept_or_decline(request):
+    """
+    Accept or decline an invitation from an user
+    :param request:
+    :param contact:
+    :return:
+    """
     user_id = request.GET.get('id_user', None)
     type_contact = request.GET.get('type_contact', None)
     user_contact = User.objects.get(id=user_id)
@@ -45,6 +53,12 @@ def manage_contact(request):
 
 
 def remove_contact(request):
+    """
+    Remove a contact
+    :param request:
+    :param contact:
+    :return:
+    """
     user_id = request.GET.get('id_user', None)
     me = get_object_user(request.user.id)
     contact_user = get_object_user(user_id)
@@ -72,6 +86,12 @@ def get_users_list_search(request):
 
 @login_required
 def search_specific(request, category, what):
+    """
+    Search user by specification
+    :param request:
+    :param contact:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     data['search'] = what
     data["athlete_url"] = "Athlete"
@@ -93,11 +113,23 @@ def search_specific(request, category, what):
 
 
 def get_number_new_request_contact(request):
+    """
+    Get the number of new request contact
+    :param request:
+    :param contact:
+    :return:
+    """
     nb_request_contact = RequestContact.objects.filter(to_request=request.user).count()
     return HttpResponse(json.dumps({'nb_request_contact': nb_request_contact}))
 
 
 def get_number_new_message(request):
+    """
+    Get the number of new message
+    :param request:
+    :param contact:
+    :return:
+    """
     discussions_with_new_message = []
     for discussion in get_object_user(request.user).discussions.all():
         for message in discussion.messages.all():
@@ -108,11 +140,23 @@ def get_number_new_message(request):
 
 
 def update_new_notifications(request):
+    """
+    Going to chatroom
+    :param request:
+    :param contact:
+    :return:
+    """
     Notification.objects.filter(for_who=request.user, is_read=False).update(is_read=True)
     return HttpResponse(json.dumps({'ok': 'ok'}))
 
 
 def get_number_new_notifications(request):
+    """
+
+    :param request:
+    :param contact:
+    :return:
+    """
     nb_notifications = Notification.objects.filter(for_who=request.user, is_read=False).count()
     return HttpResponse(json.dumps({'nb_notifications': nb_notifications}))
 

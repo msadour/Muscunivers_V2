@@ -8,6 +8,12 @@ from apps.main.views import main
 
 
 def authentication(request, errors=[]):
+    """
+    Going to authentication page if the user isn't connected
+    :param request:
+    :param errors:
+    :return:
+    """
     redirect('/')
     if request.user.is_authenticated:
         return main(request)
@@ -21,6 +27,11 @@ def authentication(request, errors=[]):
 
 
 def connection(request):
+    """
+    Connect a user
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = authentication_form.ConnexionForm(request.POST)
         if form.is_valid():
@@ -41,6 +52,11 @@ def connection(request):
 
 
 def inscription(request):
+    """
+    Suscription of an user
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         if 'category' in request.POST:
             form = authentication_form.CompanyForm(request.POST, request.FILES)
@@ -62,6 +78,11 @@ def inscription(request):
 
 @login_required
 def log_out(request):
+    """
+    Logout an user
+    :param request:
+    :return:
+    """
     data['header'] = False
     logout(request)
     return redirect('/')

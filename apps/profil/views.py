@@ -12,6 +12,13 @@ from django.http import HttpResponse
 
 @login_required
 def go_to_profil(request, id_user=None, window=None):
+    """
+    Go to profil user account
+    :param request:
+    :param id_user:
+    :param window:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     if id_user:
         user_profil = get_object_user(User.objects.get(id=id_user))
@@ -52,6 +59,11 @@ def go_to_profil(request, id_user=None, window=None):
 
 
 def create_product(request):
+    """
+    Create a product
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = service_form.ProductForm(request.POST)
         if form.is_valid():
@@ -61,6 +73,11 @@ def create_product(request):
 
 
 def delete_product(request):
+    """
+    Delete a product
+    :param request:
+    :return:
+    """
     current_company = get_object_user(request.user.id)
     id_product = request.GET.get('id_product', None)
     # import pdb ; pdb.set_trace()
@@ -74,6 +91,11 @@ def delete_product(request):
 
 
 def create_coaching(request):
+    """
+    Create a coaching
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = service_form.CoachingForm(request.POST)
         if form.is_valid():
@@ -83,6 +105,11 @@ def create_coaching(request):
 
 
 def delete_coaching(request):
+    """
+    delete a coaching
+    :param request:
+    :return:
+    """
     current_coach = get_object_user(request.user.id)
     id_coaching = request.GET.get('id_coaching', None)
     coaching = Coaching.objects.get(id=id_coaching)
@@ -94,6 +121,11 @@ def delete_coaching(request):
 # ------------------------------------------ Event ------------------------------------------
 
 def create_event(request):
+    """
+    Create an event
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = event_form.EventForm(request.POST)
         if form.is_valid():
@@ -105,6 +137,11 @@ def create_event(request):
 # ------------------------------------------ Event ------------------------------------------
 
 def create_subject(request):
+    """
+    Create a subject
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = subject_form.SubjectForm(request.POST)
         if form.is_valid():

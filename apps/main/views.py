@@ -7,6 +7,12 @@ from apps.common.models import Status
 
 @login_required
 def main(request, publication_id=None):
+    """
+    Go to main page
+    :param request:
+    :param publication_id:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     data["mode"] = "publications"
     data['user'] = request.user

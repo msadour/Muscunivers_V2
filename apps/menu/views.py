@@ -7,11 +7,21 @@ from apps.common.models import RequestContact
 
 
 def go_to_main(request):
+    """
+    Go to main page
+    :param request:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     return redirect('/main')
 
 
 def go_to_settings(request):
+    """
+    Go to settings page
+    :param request:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     data['informations'] = get_object_user(request.user.id)
     if data['my_profil'].get_type_user() == 'Company':
@@ -22,6 +32,11 @@ def go_to_settings(request):
 
 
 def go_to_request_contact(request):
+    """
+    Go to request page
+    :param request:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     data['user'] = request.user
     data['requests_contact'] = [get_object_user(contact.from_request.id) for contact in RequestContact.objects.filter(to_request=request.user)]
@@ -30,6 +45,11 @@ def go_to_request_contact(request):
 
 @login_required
 def search_users(request):
+    """
+    Go to result of user searching
+    :param request:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     form = search_form.SearchForm(request.POST)
     if form.is_valid():
@@ -47,6 +67,11 @@ def search_users(request):
 
 @login_required
 def go_to_notifications(request):
+    """
+    Go to notification page
+    :param request:
+    :return:
+    """
     data['my_profil'] = get_object_user(request.user.id)
     data['notifications'] = Notification.objects.filter(for_who=request.user).order_by('-date')
     return render(request, 'common/notifications.html', data)

@@ -5,6 +5,13 @@ from apps.common.common_data_imports import data
 
 
 def go_to_subject(request, id_subject, window='main'):
+    """
+    Going to a subject page.
+    :param request:
+    :param id_subject:
+    :param window:
+    :return: render to subject
+    """
     current_subject = Subject.objects.get(id=id_subject)
     data['current_subject'] = current_subject
     data['current_user'] = request.user
