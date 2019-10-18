@@ -96,7 +96,7 @@ urllib3==1.22
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
 w3lib==1.19.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 whitenoise==3.3.1
 wikipedia==1.4.0
 wrapt==1.10.11
